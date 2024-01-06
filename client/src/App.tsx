@@ -6,7 +6,10 @@ import { io } from 'socket.io-client'
 
 function App() {
   const [count, setCount] = useState(0)
-  const socket = io('http://localhost:3000')
+
+  const socket = io('http://dicecanvas.com', {
+    path: '/socket'
+  });
 
   socket.on('connect', () => {
     console.log('connected')
