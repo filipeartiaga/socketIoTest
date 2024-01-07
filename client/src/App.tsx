@@ -7,8 +7,12 @@ import { io } from 'socket.io-client'
 function App() {
   const [count, setCount] = useState(0)
 
-  const socket = io('http://dicecanvas.com', {
-    path: '/socket'
+  const socket = io('https://dicecanvas.com', {
+    path: '/socket',
+    withCredentials: true,
+    extraHeaders: {
+      "X": "abcd"
+    }
   });
 
   socket.on('connect', () => {
